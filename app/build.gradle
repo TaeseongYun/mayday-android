@@ -1,0 +1,39 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+apply from: "$rootDir/android_commons.gradle"
+apply from: "$rootDir/android_default_feature.gradle"
+apply from: "$rootDir/android_feature.gradle"
+
+
+android {
+
+    afterEvaluate {
+        tasks.matching {
+            it.name.contains("preBuild")
+        }
+    }
+
+    androidExtensions {
+        experimental = true
+    }
+
+    buildFeatures{
+        dataBinding = true
+    }
+}
+
+dependencies {
+
+    implementation project(":data")
+    implementation project(":local")
+    implementation project(":remote")
+
+    // Test
+    testImplementation "junit:junit:$jnit_version"
+    androidTestImplementation "androidx.test.ext:junit:$test_ext_version"
+    implementation 'com.google.firebase:firebase-messaging:20.2.3'
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
+}
