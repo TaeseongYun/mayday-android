@@ -1,9 +1,9 @@
 package com.project.local.di
 
 import androidx.room.Room
+import com.project.data.local.MaydayUserLocalDataSource
 import com.project.local.impl.LocalDataSourceImpl
 import com.project.local.model.LocalDataBase
-import com.project.mayday.domain.local.LocalDataSource
 import org.koin.android.ext.koin.androidApplication
 import org.koin.dsl.module
 
@@ -16,5 +16,5 @@ val localDataSourceModule = module {
 
     single { get<LocalDataBase>().getItemDao() }
 
-    single<LocalDataSource> { LocalDataSourceImpl(get()) }
+    single<MaydayUserLocalDataSource> { LocalDataSourceImpl(get()) }
 }

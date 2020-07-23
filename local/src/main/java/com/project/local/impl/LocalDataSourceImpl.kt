@@ -1,14 +1,14 @@
 package com.project.local.impl
 
+import com.project.data.local.MaydayUserLocalDataSource
 import com.project.local.model.LocalDao
-import com.project.mayday.domain.local.LocalDataSource
 
 
 /***
  * 코드는 다 지우기 애매해서 주석처리 해놓았습니다.
  ***/
 
-class LocalDataSourceImpl(private val localItemDao: LocalDao) : LocalDataSource {
+class LocalDataSourceImpl(private val localItemDao: LocalDao) : MaydayUserLocalDataSource {
 
 //    override fun saveMovieList(data: Entity): Completable {
 //        return localItemDao.insert(

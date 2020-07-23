@@ -11,7 +11,6 @@ import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
-import com.project.data.Repository
 import com.project.mayday.R
 import com.project.mayday.provider.ResourceProvider
 import org.koin.android.ext.android.inject
