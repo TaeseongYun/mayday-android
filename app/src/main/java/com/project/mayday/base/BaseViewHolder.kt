@@ -5,28 +5,32 @@ import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.LifecycleRegistry
 import androidx.recyclerview.widget.RecyclerView
+import com.project.mayday.BR
 
-open class BaseViewHolder<B : ViewDataBinding>(
-    @LayoutRes layoutRes: Int,
-    parent: ViewGroup
-) : RecyclerView.ViewHolder(LayoutInflater.from(parent.context).inflate(layoutRes, parent, false)) {
+open class BaseViewHolder(@LayoutRes layoutRes: Int, parent: ViewGroup) : RecyclerView.ViewHolder(LayoutInflater.from(parent.context).inflate(layoutRes, parent, false)),
+    LifecycleOwner {
 
-
-    private val binding: B = DataBindingUtil.bind(itemView)!!
+    private val binding: ViewDataBinding = DataBindingUtil.bind(itemView)!!
+    private val lifecycleRegistry by lazy { LifecycleRegistry(this) }
 
     open fun onBindViewHolder(
         item: Any?,
-        position: Int,
-        vm: Any
+        vm: Any?
     ) {
         item?.let {
             with(binding) {
-                setVariable(BR.index, position)
+                lifecycleOwner = this@BaseViewHolder
+                setVariable(BR.index, adapterPosition)
                 setVariable(BR.item, item)
                 setVariable(BR.vm, vm)
                 executePendingBindings()
             }
         }
     }
+
+    override fun getLifecycle(): Lifecycle = lifecycleRegistry
 }
