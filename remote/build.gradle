@@ -16,7 +16,7 @@ android {
         versionCode 1
         versionName "1.0"
         buildConfigField("String", "Key1", "Key1")
-        buildConfigField("String", "Key2","Key2")
+        buildConfigField("String", "Key2", "Key2")
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
@@ -39,6 +39,5 @@ android {
 }
 
 dependencies {
-    implementation project(":data")
-
+    implementation project(':domain')
 }

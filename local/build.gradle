@@ -29,7 +29,6 @@ android {
 }
 
 dependencies {
-    implementation project(":data")
+    implementation project(":domain")
     implementation 'androidx.room:room-runtime:2.2.5'
-
 }
