@@ -1,7 +1,6 @@
 package com.project.mayday.base
 
 import androidx.lifecycle.ViewModel
-import com.project.data.Repository
 import com.project.mayday.component.SingleLiveEvent
 import com.project.mayday.ui.main.MainActivity
 import io.reactivex.disposables.CompositeDisposable

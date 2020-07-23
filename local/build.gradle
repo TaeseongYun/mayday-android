@@ -31,5 +31,4 @@ android {
 dependencies {
     implementation project(":data")
     implementation 'androidx.room:room-runtime:2.2.5'
-
 }
