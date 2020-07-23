@@ -4,7 +4,9 @@ apply plugin: 'kotlin'
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-}
 
-sourceCompatibility = "1.7"
-targetCompatibility = "1.7"
+    //rxjava
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$rxadapter_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttplogging_version"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
+}
