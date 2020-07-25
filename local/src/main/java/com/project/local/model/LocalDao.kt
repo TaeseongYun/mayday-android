@@ -11,7 +11,7 @@ import io.reactivex.Maybe
 interface LocalDao {
 
     @Query("SELECT * FROM list")
-    fun getMovieList(): Maybe<LocalItem>
+    fun getList(): Maybe<LocalItem>
 
     /* import android.arch.persistence.room.OnConflictStrategy.REPLACE */
     @Insert(onConflict = OnConflictStrategy.REPLACE)

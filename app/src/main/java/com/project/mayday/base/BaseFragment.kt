@@ -8,10 +8,9 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import com.project.mayday.BR
 
-abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel>(
-    @LayoutRes private val layoutResId: Int
-) : Fragment() {
+abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel>(@LayoutRes private val layoutResId: Int) : Fragment() {
 
     protected abstract val vm: VM
     protected lateinit var binding: B
@@ -23,12 +22,15 @@ abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel>(
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, layoutResId, container, false)
-        binding.lifecycleOwner = viewLifecycleOwner
+        bind {
+            lifecycleOwner = viewLifecycleOwner
+            setVariable(BR.vm, vm)
+            setVariable(BR.fm, fragmentManager)
+        }
         return binding.root
     }
 
     protected fun bind(action: B.() -> Unit) {
         binding.run(action)
     }
-
 }

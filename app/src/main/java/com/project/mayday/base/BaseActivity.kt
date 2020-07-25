@@ -6,10 +6,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModel
 import com.project.mayday.ext.resetActivity
+import com.project.mayday.BR
 
-abstract class BaseActivity<B : ViewDataBinding, VM : BaseViewModel>(@LayoutRes private val layoutResId: Int) :
-    AppCompatActivity() {
+abstract class BaseActivity<B : ViewDataBinding, VM : ViewModel>(    @LayoutRes private val layoutResId: Int
+) : AppCompatActivity() {
 
     protected abstract val vm: VM
     protected lateinit var binding: B
@@ -17,15 +19,17 @@ abstract class BaseActivity<B : ViewDataBinding, VM : BaseViewModel>(@LayoutRes 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, layoutResId)
-        binding.lifecycleOwner = this
+        binding = DataBindingUtil.setContentView(this@BaseActivity, layoutResId)
+        bind {
+            lifecycleOwner = this@BaseActivity
+            setVariable(BR.vm, vm)
+        }
         setSessionOut()
     }
 
     private fun setSessionOut() {
-        vm.eventSessionOut.observe(this, Observer {
+        (vm as BaseViewModel).eventSessionOut.observe(this, Observer {
             resetActivity(it.java) {
-                vm.clearData()
             }
         })
     }
