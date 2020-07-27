@@ -18,7 +18,7 @@ import java.net.URL
 
 class FirebasePushService : FirebaseMessagingService() {
 
-    private val repository: Repository by inject()
+//    private val repository: Repository by inject()
     private val context: Application by inject()
     private val resourceProvider: ResourceProvider by inject()
 
@@ -28,7 +28,7 @@ class FirebasePushService : FirebaseMessagingService() {
      */
     override fun onNewToken(token: String) {
         Log.d(TAG, "onNewToken: $token")
-        repository.putString("DeviceToken", token)
+//        repository.putString("DeviceToken", token)
     }
 
     /**

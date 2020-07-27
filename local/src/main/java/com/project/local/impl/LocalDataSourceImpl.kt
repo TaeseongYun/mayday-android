@@ -1,7 +1,7 @@
 package com.project.local.impl
 
 import com.project.data.local.MaydayUserLocalDataSource
-import com.project.local.model.LocalDao
+//import com.project.local.model.LocalDao
 
 
 /***
@@ -11,7 +11,7 @@ import com.project.local.model.LocalDao
  * 20200724 -> 메서드명 바꿨는데 애매하시면 지우셔도 됩니다.
  ***/
 
-class LocalDataSourceImpl(private val localItemDao: LocalDao) : MaydayUserLocalDataSource {
+//class LocalDataSourceImpl(private val localItemDao: LocalDao) : MaydayUserLocalDataSource {
 
 //    override fun saveList(data: Entity): Completable {
 //        return localItemDao.insert(
@@ -32,4 +32,4 @@ class LocalDataSourceImpl(private val localItemDao: LocalDao) : MaydayUserLocalD
 //    override fun deleteList() {
 //        localItemDao.deleteAll()
 //    }
-}
+//}

@@ -25,7 +25,7 @@ abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel>(@LayoutRes 
         bind {
             lifecycleOwner = viewLifecycleOwner
             setVariable(BR.vm, vm)
-            setVariable(BR.fm, fragmentManager)
+//            setVariable(BR.fm, fragmentManager)
         }
         return binding.root
     }
