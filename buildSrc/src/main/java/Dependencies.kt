@@ -16,8 +16,8 @@ object Apps {
     val targetCompatibility: JavaVersion = JavaVersion.VERSION_1_8
     const val jvmTarget: String = "1.8"
     const val compileSdk: Int = 29
-    const val id: String = "com.utinfra.jihun.kiniviptbl"
-    const val minSdk: Int = 21
+    const val id: String = "com.project.mayday"
+    const val minSdk: Int = 23
     const val targetSdk: Int = 29
     const val buildToolVersion: String = "29.0.3"
     const val versionCode: Int = 1

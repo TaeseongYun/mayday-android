@@ -18,7 +18,6 @@ import java.net.URL
 
 class FirebasePushService : FirebaseMessagingService() {
 
-//    private val repository: Repository by inject()
     private val context: Application by inject()
     private val resourceProvider: ResourceProvider by inject()
 
@@ -28,7 +27,6 @@ class FirebasePushService : FirebaseMessagingService() {
      */
     override fun onNewToken(token: String) {
         Log.d(TAG, "onNewToken: $token")
-//        repository.putString("DeviceToken", token)
     }
 
     /**
@@ -50,15 +48,13 @@ class FirebasePushService : FirebaseMessagingService() {
     private fun sendNotification(remoteNoti: Map<String, String>?) {
 
         val defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
-//        val strIcon = String.format(Locale.KOREAN, "@drawable/%s", remoteNoti?.get("icon"))
-//        val smallIcon = resources.getIdentifier(strIcon, "drawable", packageName)
 
         val notiManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
         remoteNoti?.let { noti ->
             val notiBuilder = NotificationCompat.Builder(this, "0")
-                .setLargeIcon(BitmapFactory.decodeResource(resources, R.drawable.place_holder))
-                .setSmallIcon(R.drawable.place_holder)
+//                .setLargeIcon(BitmapFactory.decodeResource(resources, R.drawable.place_holder))
+//                .setSmallIcon(R.drawable.place_holder)
                 .setContentTitle(noti["Title"])
                 .setContentText(noti["Body"])
                 .setAutoCancel(true)
@@ -66,7 +62,8 @@ class FirebasePushService : FirebaseMessagingService() {
                 //드래그 했을 때
                 .setStyle(noti["ImgUrl"]?.let {
                     val url = URL(it)
-                    val bigPicture = BitmapFactory.decodeStream(url.openConnection().getInputStream())
+                    val bigPicture =
+                        BitmapFactory.decodeStream(url.openConnection().getInputStream())
                     NotificationCompat.BigPictureStyle()
                         .bigPicture(bigPicture)
                         .setBigContentTitle(noti["Title"])
@@ -74,7 +71,8 @@ class FirebasePushService : FirebaseMessagingService() {
                 })
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                val notiChannel = NotificationChannel("0", "MayDay", NotificationManager.IMPORTANCE_HIGH)
+                val notiChannel =
+                    NotificationChannel("0", "MayDay", NotificationManager.IMPORTANCE_HIGH)
                 notiManager.createNotificationChannel(notiChannel)
             }
             notiManager.notify(0, notiBuilder.build())
