@@ -1,7 +1,0 @@
-include ':content'
-include ':remote'
-include ':local'
-include ':data'
-include ':app'
-include ':domain'
-rootProject.name = "MayDay"
