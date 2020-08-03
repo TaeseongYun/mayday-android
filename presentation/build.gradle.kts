@@ -13,6 +13,7 @@ android {
     defaultConfig {
         minSdkVersion(Apps.minSdk)
         targetSdkVersion(Apps.targetSdk)
+        multiDexEnabled = true
         versionCode = Apps.versionCode
         versionName = Apps.versionName
         testInstrumentationRunner = Apps.testInstrumentationRunner
@@ -48,12 +49,6 @@ android {
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
-    implementation(project(":domain"))
-    implementation(project(":data"))
-    implementation(project(":local"))
-    implementation(project(":remote"))
-    implementation(project(":content"))
-
     //Kotlin
     implementation(Libs.kotlin)
     //Standard
@@ -83,7 +78,6 @@ dependencies {
     implementation(Libs.roomCompiler)
 
     //DI
-//    implementation(Libs.koin)
     implementation(Libs.koinViewModel)
 
     //Firebase
@@ -101,4 +95,10 @@ dependencies {
     implementation(TestLibs.junit)
     implementation(TestLibs.junitExt)
     implementation(TestLibs.espresso)
+
+    implementation(project(":domain"))
+    implementation(project(":data"))
+    implementation(project(":local"))
+    implementation(project(":remote"))
+    implementation(project(":content"))
 }

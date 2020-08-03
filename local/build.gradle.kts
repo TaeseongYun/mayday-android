@@ -50,9 +50,6 @@ android {
 }
 
 dependencies {
-
-    implementation(project(":data"))
-
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(Libs.kotlin)
     implementation(Libs.coreKtx)
@@ -81,4 +78,6 @@ dependencies {
     implementation(TestLibs.junit)
     implementation(TestLibs.junitExt)
     implementation(TestLibs.espresso)
+
+    implementation(project(":data"))
 }

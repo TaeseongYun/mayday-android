@@ -17,10 +17,10 @@ android {
 
         buildTypes {
             getByName(BuildTypes.DEBUG) {
-                buildConfigField("String", "BASE_URL", "\"https://kinicarevip.xyz/kinivip/\"")
+//                buildConfigField("String", "BASE_URL", "\"https://kinicarevip.xyz/kinivip/\"")
             }
             getByName(BuildTypes.RELEASE) {
-                buildConfigField("String", "BASE_URL", "\"https://kinicarevip.xyz/kinivip/\"")
+//                buildConfigField("String", "BASE_URL", "\"https://kinicarevip.xyz/kinivip/\"")
             }
         }
     }
@@ -47,9 +47,6 @@ android {
 }
 
 dependencies {
-
-    implementation(project(":data"))
-
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(Libs.kotlin)
     implementation(Libs.coreKtx)
@@ -69,7 +66,6 @@ dependencies {
     implementation(Libs.gson)
 
     //DI
-    implementation(Libs.koin)
     implementation(Libs.koinViewModel)
 
     // Logger
@@ -79,4 +75,6 @@ dependencies {
     implementation(TestLibs.junit)
     implementation(TestLibs.junitExt)
     implementation(TestLibs.espresso)
+
+    implementation(project(":data"))
 }
