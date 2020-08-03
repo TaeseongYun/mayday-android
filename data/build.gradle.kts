@@ -17,10 +17,22 @@ android {
 
         buildTypes {
             getByName(BuildTypes.DEBUG) {
-                buildConfigField("String", "BASE_URL", "\"https://mayday.may/day/\"")
+                //todo 아직은 초기작업이니 ConfigField 는 후에 추가 부탁드려요.
+                isDebuggable = true
+                isMinifyEnabled = false
+                proguardFiles(
+                    getDefaultProguardFile("proguard-android-optimize.txt"),
+                    "proguard-rules.pro"
+                )
+//                buildConfigField("String", "BASE_URL", "\"https://mayday.may/day/\"")
             }
             getByName(BuildTypes.RELEASE) {
-                buildConfigField("String", "BASE_URL", "\"https://mayday.may/day/\"")
+                isMinifyEnabled = false
+                proguardFiles(
+                    getDefaultProguardFile("proguard-android-optimize.txt"),
+                    "proguard-rules.pro"
+                )
+//                buildConfigField("String", "BASE_URL", "\"https://mayday.may/day/\"")
             }
         }
     }
