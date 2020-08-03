@@ -60,7 +60,7 @@ android {
 
 dependencies {
 
-    api(project(":domain"))
+    implementation(project(":domain"))
 
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(Libs.kotlin)

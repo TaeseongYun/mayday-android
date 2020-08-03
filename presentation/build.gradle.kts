@@ -48,11 +48,11 @@ android {
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
-    api(project(":domain"))
-    api(project(":data"))
-    api(project(":local"))
-    api(project(":remote"))
-    api(project(":content"))
+    implementation(project(":domain"))
+    implementation(project(":data"))
+    implementation(project(":local"))
+    implementation(project(":remote"))
+    implementation(project(":content"))
 
     //Kotlin
     implementation(Libs.kotlin)
