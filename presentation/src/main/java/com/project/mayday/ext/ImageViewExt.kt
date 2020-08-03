@@ -12,9 +12,9 @@ fun ImageView.setImgUrl(imgUrl: String?) {
     imgUrl?.let {
         Picasso.get()
             .load(it.ifEmpty { NO_IMAGE_URL })
-//            .placeholder(R.drawable.place_holder)
-//            .centerCrop()
-//            .error(R.drawable.error)
+            .placeholder(R.drawable.place_holder)
+            .centerCrop()
+            .error(R.drawable.error)
             .fit()
             .into(this)
     }
