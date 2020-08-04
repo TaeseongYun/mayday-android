@@ -24,7 +24,6 @@ android {
                     getDefaultProguardFile("proguard-android-optimize.txt"),
                     "proguard-rules.pro"
                 )
-//                buildConfigField("String", "BASE_URL", "\"https://mayday.may/day/\"")
             }
             getByName(BuildTypes.RELEASE) {
                 isMinifyEnabled = false
@@ -32,14 +31,7 @@ android {
                     getDefaultProguardFile("proguard-android-optimize.txt"),
                     "proguard-rules.pro"
                 )
-//                buildConfigField("String", "BASE_URL", "\"https://mayday.may/day/\"")
             }
-        }
-    }
-
-    buildTypes {
-        getByName(BuildTypes.RELEASE) {
-            isMinifyEnabled = false
         }
     }
 

@@ -17,17 +17,14 @@ android {
 
         buildTypes {
             getByName(BuildTypes.DEBUG) {
-//                buildConfigField("String", "BASE_URL", "\"https://kinicarevip.xyz/kinivip/\"")
+                isDebuggable = true
+                isMinifyEnabled = false
+                proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
             }
             getByName(BuildTypes.RELEASE) {
-//                buildConfigField("String", "BASE_URL", "\"https://kinicarevip.xyz/kinivip/\"")
+                isMinifyEnabled = false
+                proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
             }
-        }
-    }
-
-    buildTypes {
-        getByName(BuildTypes.RELEASE) {
-            isMinifyEnabled = false
         }
     }
 

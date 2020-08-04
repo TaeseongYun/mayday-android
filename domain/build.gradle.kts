@@ -54,7 +54,7 @@ dependencies {
     implementation(Libs.kotlin)
     implementation(Libs.coreKtx)
     implementation(Libs.appcompat)
-//    implementation(Libs.rxJava2)
+
     implementation(Libs.rxAndroid)
     implementation(Libs.rxKotlin)
 

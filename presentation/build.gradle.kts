@@ -14,7 +14,6 @@ android {
         applicationId = Apps.id
         minSdkVersion(Apps.minSdk)
         targetSdkVersion(Apps.targetSdk)
-        multiDexEnabled = true
         versionCode = Apps.versionCode
         versionName = Apps.versionName
         testInstrumentationRunner = Apps.testInstrumentationRunner
