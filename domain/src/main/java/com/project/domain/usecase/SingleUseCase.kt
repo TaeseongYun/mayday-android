@@ -1,6 +1,6 @@
-package com.project.mayday.domain.usecase
+package com.project.domain.usecase
 
-import com.project.mayday.domain.usecase.base.BaseUseCase
+import com.project.domain.usecase.base.BaseUseCase
 import io.reactivex.Scheduler
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers

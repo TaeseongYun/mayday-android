@@ -1,7 +1,7 @@
 package com.project.data.di
 
 import com.project.data.impl.RepositoryImpl
-import com.project.mayday.domain.Repository
+import com.project.domain.Repository
 import org.koin.dsl.module
 
 

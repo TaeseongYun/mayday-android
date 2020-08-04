@@ -1,4 +1,4 @@
-package com.project.mayday.domain.entity
+package com.project.domain.entity
 
 data class LocalItem(
     val initTime: Long = 0,

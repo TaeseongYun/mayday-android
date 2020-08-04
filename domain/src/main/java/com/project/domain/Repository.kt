@@ -1,4 +1,4 @@
-package com.project.mayday.domain
+package com.project.domain
 
 interface Repository {
 //    fun getString(key: String): String?
