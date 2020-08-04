@@ -34,10 +34,10 @@ fun View.setBgTint(colorCode: String?) {
 }
 
 
-@BindingAdapter("hideKeyboard")
-fun View.hideKeyboard(value: Any?) {
-    setOnClickListener {
-        val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.hideSoftInputFromWindow(windowToken, 0)
-    }
-}
+//@BindingAdapter("hideKeyboard")
+//fun View.hideKeyboard(value: Any?) {
+//    setOnClickListener {
+//        val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+//        imm.hideSoftInputFromWindow(windowToken, 0)
+//    }
+//}

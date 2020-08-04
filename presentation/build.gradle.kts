@@ -1,9 +1,9 @@
 plugins {
     id("com.android.application")
+    id("com.google.gms.google-services")
     kotlin("android")
     kotlin("android.extensions")
     kotlin("kapt")
-//    id("com.google.gms.google-services")
 }
 
 android {
@@ -11,6 +11,7 @@ android {
     buildToolsVersion(Apps.buildToolVersion)
 
     defaultConfig {
+        applicationId = Apps.id
         minSdkVersion(Apps.minSdk)
         targetSdkVersion(Apps.targetSdk)
         multiDexEnabled = true

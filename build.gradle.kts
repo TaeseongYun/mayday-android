@@ -10,17 +10,15 @@ buildscript {
             classpath("com.android.tools.build:gradle:${Versions.gradle}")
         }
     }
-
-    allprojects {
-        repositories {
-            google()
-            jcenter()
-            maven { url = uri("https://maven.google.com/") }
-            maven { url = uri("https://jitpack.io") }
-        }
+}
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url = uri("https://maven.google.com/") }
+        maven { url = uri("https://jitpack.io") }
     }
-
-    tasks.register("clean", Delete::class) {
-        delete(rootProject.buildDir)
-    }
+}
+tasks.register("clean", Delete::class) {
+    delete(rootProject.buildDir)
 }
