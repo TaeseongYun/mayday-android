@@ -4,19 +4,20 @@ plugins {
     kotlin("android.extensions")
     kotlin("kapt")
     id("com.google.gms.google-services")
+    id("com.google.firebase.crashlytics")
 }
 
 android {
-    compileSdkVersion(Apps.compileSdk)
-    buildToolsVersion(Apps.buildToolVersion)
+    compileSdkVersion(Apps.COMPILE_SDK)
+    buildToolsVersion(Apps.BUILD_TOOL_VERSION)
 
     defaultConfig {
-        applicationId = Apps.id
-        minSdkVersion(Apps.minSdk)
-        targetSdkVersion(Apps.targetSdk)
-        versionCode = Apps.versionCode
-        versionName = Apps.versionName
-        testInstrumentationRunner = Apps.testInstrumentationRunner
+        applicationId = Apps.ID
+        minSdkVersion(Apps.MIN_SDK)
+        targetSdkVersion(Apps.TARGET_SDK)
+        versionCode = Apps.VERSION_CODE
+        versionName = Apps.VERSION_NAME
+        testInstrumentationRunner = Apps.TEST_INSTRUMENTATION_RUNNER
     }
 
     buildTypes {
@@ -38,7 +39,7 @@ android {
     }
 
     kotlinOptions {
-        jvmTarget = Apps.jvmTarget
+        jvmTarget = Apps.JVM_TARGET
     }
 
     buildFeatures {
@@ -50,51 +51,55 @@ dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
     //Kotlin
-    implementation(Libs.kotlin)
+    implementation(Libs.KOTLIN)
     //Standard
-    implementation(Libs.appcompat)
-    implementation(Libs.coreKtx)
-    implementation(Libs.constraintLayout)
-    implementation(Libs.recyclerview)
+    implementation(Libs.APP_COMPAT)
+    implementation(Libs.CORE_KTX)
+    implementation(Libs.CONSTRAINT_LAYOUT)
+    implementation(Libs.RECYCLERVIEW)
 
     //Retrofit
-    implementation(Libs.retrofit2)
-    implementation(Libs.converterGson)
-    implementation(Libs.anko)
-    implementation(Libs.adapterRxJava2)
-    implementation(Libs.okHttp3)
-    implementation(Libs.loggingInterceptor)
+    implementation(Libs.RETROFIT2)
+    implementation(Libs.CONVERTER_GSON)
+    implementation(Libs.ANKO)
+    implementation(Libs.ADAPTER_RXJAVA2)
+    implementation(Libs.OKHTTP3)
+    implementation(Libs.LOGGING_INTERCEPTORS)
 
     //Rx
-    implementation(Libs.rxAndroid)
-    implementation(Libs.rxKotlin)
+    implementation(Libs.RX_ANDROID)
+    implementation(Libs.RX_KOTLIN)
 
     //Image
-    implementation(Libs.picasso)
+    implementation(Libs.PICASSO)
 
-    //Room
-    implementation(Libs.roomRuntime)
-    implementation(Libs.roomRxJava2)
-    implementation(Libs.roomCompiler)
+    // Room  -> data는 필요 없을 것 같아서 일단 주석처리 하였습니다. 2020.08.04 by 배성재
+//    implementation(Libs.roomRuntime)
+//    implementation(Libs.roomRxJava2)
+//    implementation(Libs.roomCompiler)
 
     //DI
-    implementation(Libs.koinViewModel)
+    implementation(Libs.KOIN_VIEWMODEL)
 
     //Firebase
-    implementation(Libs.fbmessaging)
-    implementation(Libs.fbcore)
+    implementation(Libs.FIREBASE_MESSAGING)
+    implementation(Libs.FIREBASE_CORE)
 
     //MP
-    implementation(Libs.logger)
+    implementation(Libs.LOGGER)
 
     //Coroutine
-    implementation(Libs.coroutinecore)
-    implementation(Libs.coroutineandroid)
+    implementation(Libs.COROUTINE_CORE)
+    implementation(Libs.COROUTINE_ANDROID)
 
     //Test
-    implementation(TestLibs.junit)
-    implementation(TestLibs.junitExt)
-    implementation(TestLibs.espresso)
+    implementation(TestLibs.JUNIT)
+    implementation(TestLibs.JUNIT_EXT)
+    implementation(TestLibs.ESPRESSO)
+    implementation(Libs.GOOGLE_MAPS)
+    implementation(Libs.GOOGLE_LOCATION)
+    implementation(Libs.FIREBASE_ANALYTICS)
+    implementation(Libs.FIREBASE_CRASHLYTICS)
 
     implementation(project(":domain"))
     implementation(project(":data"))

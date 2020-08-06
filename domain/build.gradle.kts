@@ -2,13 +2,14 @@ plugins {
     `java-library`
     id("kotlin")
 }
+
 dependencies {
-    implementation(Libs.kotlin)
-    implementation(Libs.coreKtx)
-    implementation(Libs.appcompat)
+    implementation(Libs.KOTLIN)
+    implementation(Libs.CORE_KTX)
+    implementation(Libs.APP_COMPAT)
 
-    implementation(Libs.rxAndroid)
-    implementation(Libs.rxKotlin)
+    implementation(Libs.RX_ANDROID)
+    implementation(Libs.RX_KOTLIN)
 
-    implementation(Libs.converterGson)
+    implementation(Libs.CONVERTER_GSON)
 }

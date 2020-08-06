@@ -20,9 +20,9 @@ import com.project.mayday.base.BaseRecyclerViewAdapter
 fun RecyclerView.setRecyclerViewAdapter(
     contentItem: List<Any>? = null,
     @LayoutRes contentItemRes: Int? = null,
-    headerItem: List<Any>? = null,
+    headerItem: Any? = null,
     @LayoutRes headerItemRes: Int? = null,
-    footerItem: List<Any>? = null,
+    footerItem: Any? = null,
     @LayoutRes footerItemRes: Int? = null,
     vm: Any? = null
 ) {

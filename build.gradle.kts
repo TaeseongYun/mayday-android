@@ -4,9 +4,10 @@ buildscript {
         jcenter()
 
         dependencies {
-            classpath("com.android.tools.build:gradle:${Versions.gradle}")
-            classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}")
-            classpath("com.google.gms:google-services:${Versions.googleservice}")
+            classpath("com.android.tools.build:gradle:${Versions.GRADLE}")
+            classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.KOTLIN}")
+            classpath("com.google.gms:google-services:${Versions.GOOGLE_SERVICE}")
+            classpath("com.google.firebase:firebase-crashlytics-gradle:${Versions.FIREBASE_CRASHLYTICS_GRADLE}")
         }
     }
 }

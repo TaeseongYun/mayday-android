@@ -6,14 +6,14 @@ plugins {
 }
 
 android {
-    compileSdkVersion(Apps.compileSdk)
-    buildToolsVersion(Apps.buildToolVersion)
+    compileSdkVersion(Apps.COMPILE_SDK)
+    buildToolsVersion(Apps.BUILD_TOOL_VERSION)
 
     defaultConfig {
-        minSdkVersion(Apps.minSdk)
-        targetSdkVersion(Apps.targetSdk)
-        versionCode = Apps.versionCode
-        versionName = Apps.versionName
+        minSdkVersion(Apps.MIN_SDK)
+        targetSdkVersion(Apps.TARGET_SDK)
+        versionCode = Apps.VERSION_CODE
+        versionName = Apps.VERSION_NAME
     }
 
     buildTypes {
@@ -45,39 +45,36 @@ android {
     }
 
     kotlinOptions {
-        jvmTarget = Apps.jvmTarget
+        jvmTarget = Apps.JVM_TARGET
     }
 }
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    implementation(Libs.kotlin)
-    implementation(Libs.coreKtx)
-    implementation(Libs.appcompat)
+    implementation(Libs.KOTLIN)
+    implementation(Libs.CORE_KTX)
+    implementation(Libs.APP_COMPAT)
 
     // RxJava
-    implementation(Libs.rxJava2)
-    implementation(Libs.rxAndroid)
-    implementation(Libs.rxKotlin)
+    implementation(Libs.RX_ANDROID)
+    implementation(Libs.RX_KOTLIN)
 
     // Room
-    implementation(Libs.roomRuntime)
-    implementation(Libs.roomKtx)
-    implementation(Libs.roomRxJava2)
-    kapt(Libs.roomCompiler)
-    implementation(Libs.gson)
+    implementation(Libs.ROOM_RUNTIME)
+    implementation(Libs.ROOM_KTX)
+    implementation(Libs.ROOM_RXJAVA2)
+    kapt(Libs.ROOM_COMPILER)
+    implementation(Libs.GSON)
 
     //DI
-    implementation(Libs.koin)
-    implementation(Libs.koinViewModel)
+    implementation(Libs.KOIN_VIEWMODEL)
 
-    // Logger
-    implementation(Libs.logger)
+    implementation(Libs.LOGGER)
 
     //Test
-    implementation(TestLibs.junit)
-    implementation(TestLibs.junitExt)
-    implementation(TestLibs.espresso)
+    implementation(TestLibs.JUNIT)
+    implementation(TestLibs.JUNIT_EXT)
+    implementation(TestLibs.ESPRESSO)
 
     implementation(project(":data"))
 }
