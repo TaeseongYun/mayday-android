@@ -10,8 +10,8 @@ import androidx.lifecycle.ViewModel
 import com.project.mayday.ext.resetActivity
 import com.project.mayday.BR
 
-abstract class BaseActivity<B : ViewDataBinding, VM : ViewModel>(    @LayoutRes private val layoutResId: Int
-) : AppCompatActivity() {
+abstract class BaseActivity<B : ViewDataBinding, VM : ViewModel>(@LayoutRes private val layoutResId: Int) :
+    AppCompatActivity() {
 
     protected abstract val vm: VM
     protected lateinit var binding: B

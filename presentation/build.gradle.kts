@@ -106,4 +106,5 @@ dependencies {
     implementation(project(":local"))
     implementation(project(":remote"))
     implementation(project(":content"))
+    implementation(project(":googlemap"))
 }
