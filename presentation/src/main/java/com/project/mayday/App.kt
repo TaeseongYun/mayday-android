@@ -1,7 +1,9 @@
 package com.project.mayday
 
 import android.app.Application
+import com.project.content.di.contentPermissionModule
 import com.project.data.di.dataModule
+import com.project.googlemap.di.googleMapModule
 import com.project.mayday.di.viewModelModule
 import com.project.mayday.ext.setUpKoin
 import com.project.remote.di.networkModule
@@ -16,7 +18,9 @@ class App : Application() {
             viewModelModule,
             dataModule,
             remoteDataSourceModule,
-            networkModule
+            networkModule,
+            contentPermissionModule,
+            googleMapModule
         )
     }
 }

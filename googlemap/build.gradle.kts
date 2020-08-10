@@ -53,4 +53,10 @@ dependencies {
 
     //DI
     implementation(Libs.KOIN_VIEWMODEL)
+
+    //Rx
+    implementation(Libs.RX_ANDROID)
+    implementation(Libs.RX_KOTLIN)
+
+    implementation(project(":content"))
 }

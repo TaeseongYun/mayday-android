@@ -2,4 +2,5 @@
     package="com.project.googlemap">
 
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 </manifest>

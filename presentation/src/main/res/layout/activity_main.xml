@@ -3,25 +3,45 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-        <data>
+    <data>
 
-        </data>
+        <variable
+            name="vm"
+            type="com.project.mayday.ui.main.viewmodel.MainViewModel" />
+    </data>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:context=".ui.main.MainActivity">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.main.MainActivity">
 
-                <fragment
-                    android:id="@+id/google_map"
-                    android:tag="@string/app_name"
-                    android:name="com.project.googlemap.MainGoogleMapFragment"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            <fragment
+                android:id="@+id/main_map_fragment"
+                android:name="com.project.googlemap.MainGoogleMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:tag="@string/app_name" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:onClick="@{() -> vm.onMoveCurrentLocationListener()}"
+                android:src="@drawable/ic_baseline_gps_fixed_24"
+                android:translationZ="30dp"
+                app:elevation="6dp" />
+        </RelativeLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">MayDay</string>
+
+    <!--    MainActivity    -->
+    <string name="denied_permission_alert_message">위치 권한을 허용으로 설정해주세요</string>
 </resources>

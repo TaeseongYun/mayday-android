@@ -1,7 +1,7 @@
-package com.project.mayday.base
+package com.project.content.base
 
 import androidx.lifecycle.ViewModel
-import com.project.mayday.component.SingleLiveEvent
+import com.project.content.ext.SingleLiveEvent
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import kotlin.reflect.KClass

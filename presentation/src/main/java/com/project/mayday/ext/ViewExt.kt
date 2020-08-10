@@ -7,6 +7,8 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
+import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 
@@ -41,3 +43,7 @@ fun View.setBgTint(colorCode: String?) {
 //        imm.hideSoftInputFromWindow(windowToken, 0)
 //    }
 //}
+
+fun Context.toast(message: String, duration: Int) =
+    Toast.makeText(this, message, duration)
+        .show()

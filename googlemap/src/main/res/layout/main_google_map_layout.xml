@@ -3,19 +3,15 @@
 
     <data>
 
+        <variable
+            name="vm"
+            type="com.project.googlemap.viewmodel.GoogleMapViewModel" />
     </data>
 
 
-    <FrameLayout
-        android:id="@+id/google_maps"
+    <fragment
+        android:id="@+id/map_fragment"
+        class="com.google.android.gms.maps.MapFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <fragment
-            android:id="@+id/map_fragment"
-            android:name="com.google.android.gms.maps.SupportMapFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-    </FrameLayout>
+        android:layout_height="match_parent" />
 </layout>

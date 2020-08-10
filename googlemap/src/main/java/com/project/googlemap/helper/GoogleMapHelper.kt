@@ -8,5 +8,5 @@ import com.google.android.gms.maps.SupportMapFragment
 interface GoogleMapHelper {
     var googleMap: GoogleMap
 
-    fun googleMapReady(onMapAsyncCallback: (FragmentManager?) -> Unit, onMapReadyCallback: OnMapReadyCallback)
+    fun googleMapReady(onMapAsyncCallback: (FragmentManager?) -> Unit)
 }
