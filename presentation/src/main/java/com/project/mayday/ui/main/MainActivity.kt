@@ -1,26 +1,16 @@
 package com.project.mayday.ui.main
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
-import androidx.databinding.Observable
 import androidx.lifecycle.Observer
-import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.CameraPosition
-import com.google.android.gms.maps.model.LatLng
-import com.project.content.services.Permissions
 import com.project.content.services.Permissions.REQUEST_LOCATION_PERMISSIONS
 import com.project.content.services.Permissions.REQUEST_PERMISSIONS
 import com.project.googlemap.MainGoogleMapFragment
 import com.project.mayday.R
 import com.project.mayday.base.BaseActivity
-import com.project.mayday.databinding.ActivityMainBinding
 import com.project.mayday.databinding.ActivityMainBindingImpl
 import com.project.mayday.ext.toast
 import com.project.mayday.ui.main.viewmodel.MainViewModel
@@ -48,19 +38,7 @@ class MainActivity : BaseActivity<ActivityMainBindingImpl, MainViewModel>(R.layo
             if (!isGranted) {
                 requestPermissions(REQUEST_PERMISSIONS.toTypedArray(), REQUEST_LOCATION_PERMISSIONS)
             } else {
-
                 /* 현재 위치로 이동 코드 작성.*/
-                val latLng = LatLng(37.566643, 126.978279);
-
-                val position = CameraPosition.Builder()
-
-                    .target(latLng).zoom(16f).build();
-
-//                (main_map_fragment as SupportMapFragment).moveCamera(
-//                    CameraUpdateFactory.newCameraPosition(
-//                        position
-//                    )
-//                )
             }
         })
     }
@@ -85,7 +63,11 @@ class MainActivity : BaseActivity<ActivityMainBindingImpl, MainViewModel>(R.layo
         return true
     }
 
-    override fun onMapReady(p0: GoogleMap?) {
+    override fun onMapReady(googleMap: GoogleMap) {
         Log.e("onMapReady", "Hi")
+        (main_map_fragment as MainGoogleMapFragment).run {
+            this.googleMap = googleMap
+            googleMapReady(onMapAsyncCallback)
+        }
     }
 }

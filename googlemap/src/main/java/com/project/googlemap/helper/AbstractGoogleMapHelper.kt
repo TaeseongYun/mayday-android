@@ -25,20 +25,4 @@ abstract class AbstractGoogleMapHelper<VIEW_BIND : ViewDataBinding, VM : ViewMod
     lateinit var dataBinding: VIEW_BIND
 
     lateinit var onMapAsyncCallback: (FragmentManager?) -> Unit
-
-//    override fun onCreateView(
-//        inflater: LayoutInflater,
-//        container: ViewGroup?,
-//        savedInstanceState: Bundle?
-//    ): View? {
-//        dataBinding =
-//            DataBindingUtil.inflate(inflater, R.layout.main_google_map_layout, container, false)
-//        dataBinding.setVariable(BR.vm, viewModel)
-//
-//        return dataBinding.root
-//    }
-
-//    fun bind(dataBindingSetter: VIEW_BIND.() -> Unit) {
-//        dataBinding.run(dataBindingSetter)
-//    }
 }
