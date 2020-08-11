@@ -16,10 +16,11 @@ abstract class BaseViewModel : ViewModel() {
     }
 
     override fun onCleared() {
+        unBindViewModel()
         super.onCleared()
     }
 
-    fun unBindViewModel() {
+    private fun unBindViewModel() {
         disposable.clear()
     }
 }

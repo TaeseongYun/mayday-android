@@ -1,9 +1,13 @@
 package com.project.mayday.ui.main
 
+import android.content.Context
+import android.location.Location
+import android.location.LocationManager
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.Observer
+import com.google.android.gms.location.LocationListener
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.project.content.services.Permissions.REQUEST_LOCATION_PERMISSIONS
@@ -33,12 +37,16 @@ class MainActivity : BaseActivity<ActivityMainBindingImpl, MainViewModel>(R.layo
                 it?.findFragmentById(R.id.main_map_fragment)
             }
         }
+        vm.getCurrentLocation = {
+//            (getSystemService(Context.LOCATION_SERVICE) as LocationManager).requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 400L, 1000f, this@MainActivity)
+        }
 
         vm.permissionCheckLiveData.observe(this, Observer<Boolean> { isGranted ->
             if (!isGranted) {
                 requestPermissions(REQUEST_PERMISSIONS.toTypedArray(), REQUEST_LOCATION_PERMISSIONS)
             } else {
                 /* 현재 위치로 이동 코드 작성.*/
+                vm.onMoveMyLocationBehaviorSubject.onNext(true)
             }
         })
     }
