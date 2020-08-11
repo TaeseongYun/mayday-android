@@ -8,6 +8,18 @@
         <variable
             name="vm"
             type="com.project.mayday.ui.main.viewmodel.MainViewModel" />
+
+        <variable
+            name="bottomSheet"
+            type="com.project.mayday.ui.main.bottomsheet.CustomBottomSheet" />
+
+        <variable
+            name="bookMarkLayout"
+            type="int" />
+
+        <variable
+            name="storyLayout"
+            type="int" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -32,13 +44,13 @@
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/current_location_fab_button"
+                throttleOnClick="@{() -> vm.onMoveCurrentLocationListener()}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_above="@+id/bookmark_fab_button"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="@dimen/spacing_large"
                 android:layout_marginBottom="@dimen/spacing_large"
-                throttleOnClick="@{() -> vm.onMoveCurrentLocationListener()}"
                 android:src="@drawable/ic_baseline_gps_fixed_24"
                 android:translationZ="30dp"
                 app:backgroundTint="@color/fab_button_gray"
@@ -52,6 +64,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginEnd="@dimen/spacing_large"
                 android:layout_marginBottom="@dimen/spacing_large"
+                android:onClick="@{() -> bottomSheet.showDialog(bookMarkLayout)}"
                 android:src="@drawable/ic_baseline_bookmark_border_24"
                 app:backgroundTint="@color/fab_button_black" />
 
@@ -63,6 +76,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="@dimen/spacing_large"
                 android:layout_marginBottom="@dimen/spacing_large"
+                android:onClick="@{() -> bottomSheet.showDialog(storyLayout)}"
                 android:src="@drawable/ic_baseline_filter_none_24"
                 app:backgroundTint="@color/fab_button_black" />
         </RelativeLayout>

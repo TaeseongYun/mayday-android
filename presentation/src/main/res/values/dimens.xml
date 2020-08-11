@@ -42,4 +42,8 @@
     <dimen name="text_large">18sp</dimen>
     <dimen name="text_x_large">24sp</dimen>
     <dimen name="text_xx_large">32sp</dimen>
+
+    <!--    Bottom Sheet Radius     -->
+    <dimen name="guide_line_radius">15dp</dimen>
+    <dimen name="guide_line_margin">156dp</dimen>
 </resources>
