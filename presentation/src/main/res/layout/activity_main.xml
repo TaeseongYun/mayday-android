@@ -38,7 +38,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="@dimen/spacing_large"
                 android:layout_marginBottom="@dimen/spacing_large"
-                android:onClick="@{() -> vm.onMoveCurrentLocationListener()}"
+                throttleOnClick="@{() -> vm.onMoveCurrentLocationListener()}"
                 android:src="@drawable/ic_baseline_gps_fixed_24"
                 android:translationZ="30dp"
                 app:backgroundTint="@color/fab_button_gray"
