@@ -39,6 +39,8 @@ class MainActivity : BaseActivity<ActivityMainBindingImpl, MainViewModel>(R.layo
             executePendingBindings()
         }
 
+        //todo onCreate 시 현재위치로 바로 카메라 이동.
+
         (main_map_fragment as MainGoogleMapFragment).getMapAsync(this)
 
         (main_map_fragment as MainGoogleMapFragment).run {

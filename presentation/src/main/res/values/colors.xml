@@ -7,5 +7,8 @@
     <color name="fab_button_gray">#e4e4e4</color>
     <color name="fab_button_black">#424242</color>
 
+    <!--    Bottom Sheet    -->
     <color name="bottom_sheet_guide_line">#e2e2e2</color>
+    <color name="title_color">#303030</color>
+    <color name="size_color">#66000000</color>
 </resources>
