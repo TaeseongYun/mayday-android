@@ -14,7 +14,7 @@ import com.google.android.gms.maps.GoogleMap.OnMyLocationButtonClickListener
 import com.google.android.gms.maps.GoogleMap.OnMyLocationClickListener
 
 class MainGoogleMapFragment :
-    AbstractGoogleMapHelper<MainGoogleMapLayoutBinding, GoogleMapViewModel>(),
+    AbstractGoogleMapHelper<GoogleMapViewModel>(),
     OnMyLocationButtonClickListener, OnMyLocationClickListener {
 
     override val viewModel: GoogleMapViewModel by viewModel()
@@ -27,7 +27,6 @@ class MainGoogleMapFragment :
         if (viewModel.permissionHelper.isGrantLocationPermission()) {
             googleMap.isMyLocationEnabled = true
         }
-        Log.e("HI", "hji")
         googleMap.setOnMyLocationButtonClickListener(this)
         googleMap.setOnMyLocationClickListener(this)
         onMapAsyncCallback(activity?.supportFragmentManager)
