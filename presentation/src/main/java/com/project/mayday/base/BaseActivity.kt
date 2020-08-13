@@ -7,11 +7,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
+import com.project.content.base.BaseViewModel
 import com.project.mayday.ext.resetActivity
 import com.project.mayday.BR
 
-abstract class BaseActivity<B : ViewDataBinding, VM : ViewModel>(    @LayoutRes private val layoutResId: Int
-) : AppCompatActivity() {
+abstract class BaseActivity<B : ViewDataBinding, VM : ViewModel>(@LayoutRes private val layoutResId: Int) :
+    AppCompatActivity() {
 
     protected abstract val vm: VM
     protected lateinit var binding: B

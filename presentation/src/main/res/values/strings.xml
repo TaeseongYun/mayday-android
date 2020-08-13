@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">MayDay</string>
+
+    <!--    MainActivity    -->
+    <string name="denied_permission_alert_message">위치 권한을 허용으로 설정해주세요</string>
+
+    <!--    Bottom Sheet    -->
+    <string name="bookmark_title">저장</string>
+    <string name="add_story">스토리추가</string>
+    <string name="story_title">스토리</string>
 </resources>

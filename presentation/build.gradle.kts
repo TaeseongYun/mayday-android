@@ -55,8 +55,14 @@ dependencies {
     //Standard
     implementation(Libs.APP_COMPAT)
     implementation(Libs.CORE_KTX)
+    api(Libs.MATERIAL)
+    /***
+     * Material 에 보시면 카드뷰와 리사이클러뷰가 포함되어 있습니다.
+     *
+     * 참고 url : https://mvnrepository.com/artifact/com.google.android.material/material/1.3.0-alpha01
+     * 2020. 08. 10 윤태성
+     ***/
     implementation(Libs.CONSTRAINT_LAYOUT)
-    implementation(Libs.RECYCLERVIEW)
 
     //Retrofit
     implementation(Libs.RETROFIT2)
@@ -106,4 +112,5 @@ dependencies {
     implementation(project(":local"))
     implementation(project(":remote"))
     implementation(project(":content"))
+    implementation(project(":googlemap"))
 }

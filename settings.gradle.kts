@@ -1,3 +1,4 @@
+include(":googlemap")
 include(":domain")
 include(":content")
 include(":remote")

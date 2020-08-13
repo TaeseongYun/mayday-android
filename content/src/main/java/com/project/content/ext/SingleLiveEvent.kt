@@ -1,4 +1,4 @@
-package com.project.mayday.component
+package com.project.content.ext
 
 import android.util.Log
 import androidx.annotation.MainThread
