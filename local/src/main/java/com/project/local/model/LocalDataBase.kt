@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 
-@Database(entities = [LocalItem::class], version = 1)
+@Database(entities = [MayDayRoomEntity::class], version = 1, exportSchema = false)
 @TypeConverters(TypeConverter::class)
 abstract class LocalDataBase : RoomDatabase() {
 

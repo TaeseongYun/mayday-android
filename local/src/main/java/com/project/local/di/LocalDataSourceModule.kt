@@ -8,7 +8,7 @@ import org.koin.android.ext.koin.androidApplication
 import org.koin.dsl.module
 
 val localDataSourceModule = module {
-    single<LocalDataBase> {
+    single {
         Room.databaseBuilder(androidApplication(), LocalDataBase::class.java, LocalDataBase.DB_NAME)
             .fallbackToDestructiveMigration()
             .build()

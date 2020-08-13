@@ -2,7 +2,7 @@ package com.project.data.impl
 
 import com.project.data.local.MaydayUserLocalDataSource
 import com.project.data.remote.MaydayRemoteDataSource
-import com.project.mayday.domain.Repository
+import com.project.domain.Repository
 
 class RepositoryImpl(
     private val localDataSource: MaydayUserLocalDataSource,

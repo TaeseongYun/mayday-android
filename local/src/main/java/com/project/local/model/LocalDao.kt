@@ -11,11 +11,11 @@ import io.reactivex.Maybe
 interface LocalDao {
 
     @Query("SELECT * FROM list")
-    fun getList(): Maybe<LocalItem>
+    fun getList(): Maybe<MayDayRoomEntity>
 
     /* import android.arch.persistence.room.OnConflictStrategy.REPLACE */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(item: LocalItem): Completable
+    fun insert(item: MayDayRoomEntity): Completable
 
     @Query("DELETE from list")
     fun deleteAll()
