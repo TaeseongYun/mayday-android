@@ -21,7 +21,7 @@ import org.koin.core.parameter.parametersOf
 
 
 class MainActivity : BaseActivity<ActivityMainBindingImpl, MainViewModel>(R.layout.activity_main),
-    GoogleMap.OnMyLocationButtonClickListener, OnMapReadyCallback {
+    OnMapReadyCallback {
 
     override val vm: MainViewModel by viewModel()
 
@@ -39,7 +39,7 @@ class MainActivity : BaseActivity<ActivityMainBindingImpl, MainViewModel>(R.layo
             executePendingBindings()
         }
 
-        //todo onCreate 시 현재위치로 바로 카메라 이동.
+        //TODO onCreate 시 현재위치로 바로 카메라 이동.
 
         (main_map_fragment as MainGoogleMapFragment).getMapAsync(this)
 
@@ -76,10 +76,6 @@ class MainActivity : BaseActivity<ActivityMainBindingImpl, MainViewModel>(R.layo
                 toast(getString(R.string.denied_permission_alert_message), Toast.LENGTH_LONG)
             }
         }
-    }
-
-    override fun onMyLocationButtonClick(): Boolean {
-        return true
     }
 
     override fun onMapReady(googleMap: GoogleMap) {

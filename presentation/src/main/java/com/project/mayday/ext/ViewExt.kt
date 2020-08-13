@@ -43,7 +43,3 @@ fun View.setBgTint(colorCode: String?) {
 //        imm.hideSoftInputFromWindow(windowToken, 0)
 //    }
 //}
-
-fun Context.toast(message: String, duration: Int) =
-    Toast.makeText(this, message, duration)
-        .show()
