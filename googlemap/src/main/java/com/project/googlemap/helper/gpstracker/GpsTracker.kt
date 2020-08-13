@@ -1,12 +1,15 @@
 package com.project.googlemap.helper.gpstracker
 
-import android.content.Context
 import android.location.Location
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.tasks.Task
 
 interface GpsTracker {
-    fun getLocation(): Location
+    fun getFusedLocationProviderClient(): Task<Location>
 
-    fun getLatitude(): Double
+    fun getCurrentLatitude(): Double
 
-    fun getLongitude(): Double
+    fun getCurrentLongitude(): Double
+
+    fun removeUsingGPS()
 }

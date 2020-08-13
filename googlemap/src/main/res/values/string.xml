@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="check_gps">GPS와 인터넷 상태를 확인해주세요</string>
+</resources>

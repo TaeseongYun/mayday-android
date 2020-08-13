@@ -10,5 +10,5 @@ import org.koin.dsl.module
 val googleMapModule = module {
     viewModel { GoogleMapViewModel(get()) }
 
-    factory<GpsTracker> { GpsTrackerImpl(androidContext()) }
+    single<GpsTracker> { GpsTrackerImpl(androidContext()) }
 }

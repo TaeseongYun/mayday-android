@@ -1,9 +1,11 @@
 package com.project.googlemap.viewmodel
 
-import androidx.lifecycle.LiveData
+import android.location.Location
+import android.util.Log
 import com.project.content.base.BaseViewModel
-import com.project.content.ext.SingleLiveEvent
 import com.project.content.services.PermissionHelper
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import io.reactivex.subjects.BehaviorSubject
 
 
@@ -11,13 +13,26 @@ open class GoogleMapViewModel(val permissionHelper: PermissionHelper) : BaseView
 
     val onMoveMyLocationBehaviorSubject = BehaviorSubject.createDefault(true)
 
-    private val _permissionCheckLiveData =
-        SingleLiveEvent<Boolean>()
+    val onLocationPublishSubject = BehaviorSubject.create<Location>()
 
-    val permissionCheckLiveData: LiveData<Boolean>
-        get() = _permissionCheckLiveData
-
-    fun onMoveCurrentLocationListener() {
-        _permissionCheckLiveData.value = permissionHelper.isGrantLocationPermission()
+    init {
+        onLocationPublishSubject
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .onErrorReturn {
+                //blockingFirst() -> ?
+                onLocationPublishSubject.blockingFirst()
+            }
+            .subscribe {
+                Log.i("LOCATION VIEWMODEL", it.latitude.toString())
+                if (::setOnDefaultLocation.isInitialized) {
+                    setOnDefaultLocation(it)
+                }
+            }
+            .addDisposable()
     }
+
+
+    lateinit var setOnDefaultLocation: (Location) -> Unit
+    lateinit var getCurrentLocation: (Location) -> Unit
 }

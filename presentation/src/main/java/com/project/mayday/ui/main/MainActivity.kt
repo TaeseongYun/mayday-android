@@ -1,17 +1,18 @@
 package com.project.mayday.ui.main
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
+import com.project.content.ext.toast
 import com.project.content.services.Permissions.REQUEST_LOCATION_PERMISSIONS
 import com.project.content.services.Permissions.REQUEST_PERMISSIONS
 import com.project.googlemap.MainGoogleMapFragment
 import com.project.mayday.R
 import com.project.mayday.base.BaseActivity
 import com.project.mayday.databinding.ActivityMainBindingImpl
-import com.project.mayday.ext.toast
 import com.project.mayday.ui.main.bottomsheet.CustomBottomSheet
 import com.project.mayday.ui.main.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.activity_main.*
@@ -48,6 +49,10 @@ class MainActivity : BaseActivity<ActivityMainBindingImpl, MainViewModel>(R.layo
                 it?.findFragmentById(R.id.main_map_fragment)
             }
         }
+        vm.setOnDefaultLocation = {
+            Log.e("LOCATION longitude", it.longitude.toString())
+            Log.e("LOcation latitude", it.latitude.toString())
+        }
         vm.getCurrentLocation = {
             /* 현재 위치로 이동 코드 작성.*/
         }
@@ -56,7 +61,6 @@ class MainActivity : BaseActivity<ActivityMainBindingImpl, MainViewModel>(R.layo
             if (!isGranted) {
                 requestPermissions(REQUEST_PERMISSIONS.toTypedArray(), REQUEST_LOCATION_PERMISSIONS)
             } else {
-
                 vm.onMoveMyLocationBehaviorSubject.onNext(true)
             }
         })
