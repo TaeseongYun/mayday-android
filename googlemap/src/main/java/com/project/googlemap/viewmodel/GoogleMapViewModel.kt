@@ -1,10 +1,10 @@
 package com.project.googlemap.viewmodel
 
 import android.location.Location
-import android.util.Log
 import com.project.content.base.BaseViewModel
 import com.project.content.services.PermissionHelper
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.rxkotlin.zipWith
 import io.reactivex.schedulers.Schedulers
 import io.reactivex.subjects.BehaviorSubject
 
@@ -16,6 +16,20 @@ open class GoogleMapViewModel(val permissionHelper: PermissionHelper) : BaseView
     val onLocationPublishSubject = BehaviorSubject.create<Location>()
 
     init {
+        onMoveMyLocationBehaviorSubject
+            .subscribeOn(Schedulers.single())
+            .observeOn(AndroidSchedulers.mainThread())
+            .zipWith(onLocationPublishSubject)
+            .onErrorReturn {
+                Pair(false, onLocationPublishSubject.blockingFirst())
+            }
+            .subscribe { isCameraMoved ->
+                if (isCameraMoved.first && ::getCurrentLocation.isInitialized) {
+                    getCurrentLocation(isCameraMoved.second)
+                }
+            }
+            .addDisposable()
+
         onLocationPublishSubject
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
@@ -24,7 +38,6 @@ open class GoogleMapViewModel(val permissionHelper: PermissionHelper) : BaseView
                 onLocationPublishSubject.blockingFirst()
             }
             .subscribe {
-                Log.i("LOCATION VIEWMODEL", it.latitude.toString())
                 if (::setOnDefaultLocation.isInitialized) {
                     setOnDefaultLocation(it)
                 }

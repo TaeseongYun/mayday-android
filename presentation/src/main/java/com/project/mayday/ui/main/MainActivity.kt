@@ -40,21 +40,12 @@ class MainActivity : BaseActivity<ActivityMainBindingImpl, MainViewModel>(R.layo
             executePendingBindings()
         }
 
-        //TODO onCreate 시 현재위치로 바로 카메라 이동.
-
         (main_map_fragment as MainGoogleMapFragment).getMapAsync(this)
 
         (main_map_fragment as MainGoogleMapFragment).run {
             onMapAsyncCallback = {
                 it?.findFragmentById(R.id.main_map_fragment)
             }
-        }
-        vm.setOnDefaultLocation = {
-            Log.e("LOCATION longitude", it.longitude.toString())
-            Log.e("LOcation latitude", it.latitude.toString())
-        }
-        vm.getCurrentLocation = {
-            /* 현재 위치로 이동 코드 작성.*/
         }
 
         vm.permissionCheckLiveData.observe(this, Observer<Boolean> { isGranted ->
