@@ -48,11 +48,10 @@ class MainActivity : BaseActivity<ActivityMainBindingImpl, MainViewModel>(R.layo
             }
         }
 
+
         vm.permissionCheckLiveData.observe(this, Observer<Boolean> { isGranted ->
             if (!isGranted) {
                 requestPermissions(REQUEST_PERMISSIONS.toTypedArray(), REQUEST_LOCATION_PERMISSIONS)
-            } else {
-                vm.onMoveMyLocationBehaviorSubject.onNext(true)
             }
         })
     }
@@ -74,6 +73,7 @@ class MainActivity : BaseActivity<ActivityMainBindingImpl, MainViewModel>(R.layo
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
+        vm.googleMap = googleMap
         (main_map_fragment as MainGoogleMapFragment).run {
             this.googleMap = googleMap
             googleMapReady(onMapAsyncCallback)

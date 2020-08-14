@@ -9,6 +9,7 @@ import com.project.mayday.di.viewModelModule
 import com.project.mayday.ext.setUpKoin
 import com.project.remote.di.networkModule
 import com.project.remote.di.remoteDataSourceModule
+import io.reactivex.plugins.RxJavaPlugins
 
 class App : Application() {
     override fun onCreate() {
@@ -24,5 +25,9 @@ class App : Application() {
             googleMapModule,
             customUiModule
         )
+
+        RxJavaPlugins.setErrorHandler {
+            it.printStackTrace()
+        }
     }
 }
