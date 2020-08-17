@@ -43,10 +43,10 @@ class MainGoogleMapFragment :
                     viewModel.onLocationPublishSubject.onNext(location)
                 }
             }
+            googleMap.isMyLocationEnabled = true
         }
 
         //현재 내 위치 UI 세팅
-        googleMap.isMyLocationEnabled = true
 
         //디폴트 현재 내위치 UI 버튼 설정 해제.
         googleMap.uiSettings.isMyLocationButtonEnabled = false
