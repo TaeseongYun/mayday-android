@@ -18,7 +18,7 @@ class ThrottleFirstClickListener(
 
     init {
 
-        onClickListenerBehaviorSubject.throttleFirst(1000L, TimeUnit.MICROSECONDS)
+        onClickListenerBehaviorSubject.throttleFirst(THROTTLE_DURATION, TimeUnit.MICROSECONDS)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe {
                 it.run(listener)
@@ -30,4 +30,7 @@ class ThrottleFirstClickListener(
         onClickListenerBehaviorSubject.onNext(view)
     }
 
+    companion object {
+        private const val THROTTLE_DURATION = 1000L
+    }
 }
