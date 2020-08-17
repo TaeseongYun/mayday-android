@@ -62,6 +62,7 @@ object Versions {
     const val JUNIT: String = "4.12"
     const val JUNIT_EXT: String = "1.1.1"
     const val ESPRESSO: String = "3.2.0"
+    const val EASY_PERMISSION: String = "3.0.0"
 }
 
 object Libs {
@@ -111,6 +112,8 @@ object Libs {
     const val GOOGLE_MAPS = "com.google.android.gms:play-services-maps:${Versions.GOOGLE_MAP}"
     const val GOOGLE_LOCATION =
         "com.google.android.gms:play-services-location:${Versions.GOOGLE_MAP}"
+    const val EASY_PERMISSION =
+        "pub.devrel:easypermissions:${Versions.EASY_PERMISSION}"
 }
 
 object TestLibs {

@@ -8,11 +8,13 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.tasks.Task
+import com.project.content.services.Permissions.REQUEST_LOCATION_PERMISSIONS
 import com.project.googlemap.helper.AbstractGoogleMapHelper
 import com.project.googlemap.helper.gpstracker.GpsTracker
 import com.project.googlemap.viewmodel.GoogleMapViewModel
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
+import pub.devrel.easypermissions.AfterPermissionGranted
 
 class MainGoogleMapFragment :
     AbstractGoogleMapHelper<GoogleMapViewModel>() {
@@ -22,6 +24,7 @@ class MainGoogleMapFragment :
     internal val gpsTracker by inject<GpsTracker>()
 
     @SuppressLint("MissingPermission")
+    @AfterPermissionGranted(REQUEST_LOCATION_PERMISSIONS)
     override fun googleMapReady(
         onMapAsyncCallback: (FragmentManager?) -> Unit
     ) {

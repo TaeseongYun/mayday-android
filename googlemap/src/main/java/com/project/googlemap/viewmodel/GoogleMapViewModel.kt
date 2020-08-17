@@ -26,15 +26,18 @@ open class GoogleMapViewModel(val permissionHelper: PermissionHelper) : BaseView
         onMoveMyLocationBehaviorSubject
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .onErrorReturn {
-                false
-            }
+//            .onErrorReturn {
+//                false
+//            }
             .filter { it }
-            .subscribe { isCameraMoved ->
+            .subscribe({ isCameraMoved ->
+                Log.e("onMoveMyLocation", "RUN !!")
                 if (isCameraMoved && ::getCurrentLocation.isInitialized) {
                     getCurrentLocation()
                 }
-            }
+            }, {
+                it.printStackTrace()
+            })
             .addDisposable()
 
         onLocationPublishSubject

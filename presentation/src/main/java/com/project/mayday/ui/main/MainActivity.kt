@@ -53,6 +53,7 @@ class MainActivity : BaseActivity<ActivityMainBindingImpl, MainViewModel>(R.layo
             if (!isGranted) {
                 requestPermissions(REQUEST_PERMISSIONS.toTypedArray(), REQUEST_LOCATION_PERMISSIONS)
             }
+            return@Observer
         })
     }
 

@@ -34,7 +34,9 @@ class MainViewModel(permissionHelper: PermissionHelper) : GoogleMapViewModel(per
         get() = _permissionCheckLiveData
 
     fun onMoveCurrentLocationListener() {
-        onMoveMyLocationBehaviorSubject.onNext(true)
+        if(permissionHelper.isGrantLocationPermission()) {
+            onMoveMyLocationBehaviorSubject.onNext(true)
+        }
         _permissionCheckLiveData.value = permissionHelper.isGrantLocationPermission()
     }
 }

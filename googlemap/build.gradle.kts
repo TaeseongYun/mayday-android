@@ -58,5 +58,8 @@ dependencies {
     implementation(Libs.RX_ANDROID)
     implementation(Libs.RX_KOTLIN)
 
+    //Eazy Permissions
+    implementation(Libs.EASY_PERMISSION)
+
     implementation(project(":content"))
 }
