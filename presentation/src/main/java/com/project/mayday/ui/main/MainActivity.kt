@@ -43,8 +43,8 @@ class MainActivity : BaseActivity<ActivityMainBindingImpl, MainViewModel>(R.layo
         (main_map_fragment as MainGoogleMapFragment).getMapAsync(this)
 
         (main_map_fragment as MainGoogleMapFragment).run {
-            onMapAsyncCallback = {
-                it?.findFragmentById(R.id.main_map_fragment)
+            onMapAsyncCallback = { fragmentManager ->
+                fragmentManager?.findFragmentById(R.id.main_map_fragment)
             }
         }
 
