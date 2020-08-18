@@ -1,5 +1,6 @@
 package com.project.mayday.ui.main
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -57,6 +58,7 @@ class MainActivity : BaseActivity<ActivityMainBindingImpl, MainViewModel>(R.layo
         })
     }
 
+    @SuppressLint("MissingPermission")
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -68,8 +70,10 @@ class MainActivity : BaseActivity<ActivityMainBindingImpl, MainViewModel>(R.layo
                     permissions[1]
                 )
             ) {
+                //퍼미션 불허.
                 toast(getString(R.string.denied_permission_alert_message), Toast.LENGTH_LONG)
             } else {
+                // 퍼미션 허가
                 vm.googleMap.isMyLocationEnabled = true
             }
         }
