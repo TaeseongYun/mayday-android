@@ -11,7 +11,6 @@ import com.project.googlemap.viewmodel.GoogleMapViewModel
 class MainViewModel(permissionHelper: PermissionHelper) : GoogleMapViewModel(permissionHelper) {
     init {
         getCurrentLocation = {
-
             // googleMap.myLocation -> 디플리케이트.
             val latLng = LatLng(
                 googleMap.myLocation.latitude,
@@ -34,7 +33,7 @@ class MainViewModel(permissionHelper: PermissionHelper) : GoogleMapViewModel(per
         get() = _permissionCheckLiveData
 
     fun onMoveCurrentLocationListener() {
-        if(permissionHelper.isGrantLocationPermission()) {
+        if (permissionHelper.isGrantLocationPermission()) {
             onMoveMyLocationBehaviorSubject.onNext(true)
         }
         _permissionCheckLiveData.value = permissionHelper.isGrantLocationPermission()

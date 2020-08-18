@@ -69,6 +69,8 @@ class MainActivity : BaseActivity<ActivityMainBindingImpl, MainViewModel>(R.layo
                 )
             ) {
                 toast(getString(R.string.denied_permission_alert_message), Toast.LENGTH_LONG)
+            } else {
+                vm.googleMap.isMyLocationEnabled = true
             }
         }
     }

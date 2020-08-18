@@ -5,6 +5,7 @@ plugins {
     kotlin("kapt")
     id("com.google.gms.google-services")
     id("com.google.firebase.crashlytics")
+    id("kotlin-android")
 }
 
 android {
@@ -113,4 +114,6 @@ dependencies {
     implementation(project(":remote"))
     implementation(project(":content"))
     implementation(project(":googlemap"))
+    implementation("androidx.appcompat:appcompat:1.2.0")
+    implementation("androidx.constraintlayout:constraintlayout:1.1.3")
 }
