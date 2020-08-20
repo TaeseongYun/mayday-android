@@ -64,4 +64,5 @@ dependencies {
     implementation(Libs.EASY_PERMISSION)
 
     implementation(project(":content"))
+    implementation(project(":domain"))
 }

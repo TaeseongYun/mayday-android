@@ -8,7 +8,7 @@ import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val googleMapModule = module {
-    viewModel { GoogleMapViewModel(get()) }
+    viewModel { GoogleMapViewModel(get(), get()) }
 
     single<GpsTracker> { GpsTrackerImpl(androidContext()) }
 }

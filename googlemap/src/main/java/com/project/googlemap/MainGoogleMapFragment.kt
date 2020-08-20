@@ -55,7 +55,7 @@ class MainGoogleMapFragment :
         googleMap.uiSettings.isMyLocationButtonEnabled = false
 
         googleMap.setOnCameraMoveListener {
-            viewModel.onMoveMyLocationBehaviorSubject.onNext(false)
+            viewModel.baseUseCase.behaviorHandler(false)
         }
 
 

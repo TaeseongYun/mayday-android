@@ -13,5 +13,5 @@ val viewModelModule = module {
     single<ResourceProvider> { ResourceProviderImpl(androidApplication()) }
 
 
-    viewModel { MainViewModel(get()) }
+    viewModel { MainViewModel(get(), get()) }
 }
