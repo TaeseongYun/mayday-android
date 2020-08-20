@@ -42,6 +42,8 @@ dependencies {
     implementation(Libs.APP_COMPAT)
     implementation(Libs.CORE_KTX)
 
+    //material
+    api(Libs.MATERIAL)
     //test
     implementation(TestLibs.JUNIT)
     implementation(TestLibs.JUNIT_EXT)

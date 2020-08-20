@@ -1,5 +1,6 @@
 package com.project.mayday.ui.main.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.model.LatLng
@@ -33,6 +34,7 @@ class MainViewModel(permissionHelper: PermissionHelper) : GoogleMapViewModel(per
         get() = _permissionCheckLiveData
 
     fun onMoveCurrentLocationListener() {
+        Log.e("Click", System.currentTimeMillis().toString())
         if (permissionHelper.isGrantLocationPermission()) {
             onMoveMyLocationBehaviorSubject.onNext(true)
         }
