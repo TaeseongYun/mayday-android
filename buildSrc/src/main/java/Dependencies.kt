@@ -58,11 +58,11 @@ object Versions {
     const val FIREBASE_CRASHLYTICS_GRADLE = "2.2.0"
     const val GOOGLE_SERVICE: String = "4.3.3"
     const val GOOGLE_MAP: String = "17.0.0"
+    const val EASY_PERMISSION: String = "3.0.0"
     const val COROUTINE: String = "1.3.7"
     const val JUNIT: String = "4.12"
     const val JUNIT_EXT: String = "1.1.1"
     const val ESPRESSO: String = "3.2.0"
-    const val EASY_PERMISSION: String = "3.0.0"
 }
 
 object Libs {
